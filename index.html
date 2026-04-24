@@ -716,13 +716,9 @@ async function sendMsg(text) {
   showTyping();
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch('/.netlify/functions/chat', {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'anthropic-version': '2023-06-01',
-        'x-api-key': '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'
-      },
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 200,
@@ -747,13 +743,9 @@ async function sendMsg(text) {
 
 async function analyzeAffection(userMsg, rimiReply) {
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch('/.netlify/functions/chat', {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'anthropic-version': '2023-06-01',
-        'x-api-key': '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'
-      },
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 20,
