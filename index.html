@@ -733,7 +733,7 @@ async function sendMsg(text) {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-5',
         max_tokens: 200,
         system: SYSTEM.replace('{USERNAME}', userName || '아직 모름').replace('{NICKNAME}', nickname || '없음').replace('{AFFECTION}', affection),
         messages: convo.slice(-12)
@@ -761,7 +761,7 @@ async function analyzeAffection(userMsg, rimiReply) {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-5',
         max_tokens: 20,
         system: `You analyze a message to Rimi (a menhera idol character) and return ONLY a JSON like {"delta": 5} where delta is between -15 and +15. Positive if the user said something affectionate, sweet, complimentary, caring, or apologetic. Negative if the user said something hurtful, dismissive, provocative, or mentioned other people romantically. Neutral (0) for plain messages.`,
         messages: [{ role: 'user', content: `User said: "${userMsg}"` }]
